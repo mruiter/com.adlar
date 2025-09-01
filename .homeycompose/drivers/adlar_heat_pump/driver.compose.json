@@ -7,6 +7,12 @@
   "capabilities": [
     "onoff",
     "target_temperature",
-    "measure_temperature"
+    "measure_temperature",
+    "measure_water_temperature_out",
+    "measure_ambient_temperature",
+    "measure_water_flow",
+    "measure_current",
+    "measure_voltage",
+    "measure_power"
   ]
 }
