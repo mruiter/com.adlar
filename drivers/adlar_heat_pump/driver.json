@@ -1,0 +1,12 @@
+{
+  "id": "adlar_heat_pump",
+  "name": {
+    "en": "Adlar Heat Pump"
+  },
+  "class": "thermostat",
+  "capabilities": [
+    "onoff",
+    "target_temperature",
+    "measure_temperature"
+  ]
+}

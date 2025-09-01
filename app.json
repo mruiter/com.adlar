@@ -1,0 +1,16 @@
+{
+  "id": "com.adlar",
+  "name": {
+    "en": "Adlar Heat Pump"
+  },
+  "description": {
+    "en": "Control Adlar Heat Pump locally via Tuya protocol"
+  },
+  "version": "1.0.0",
+  "compatibility": ">=10.0.0",
+  "category": [
+    "climate"
+  ],
+  "author": "Adlar Integration",
+  "brandColor": "#FF6600"
+}

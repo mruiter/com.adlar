@@ -1,0 +1,16 @@
+{
+  "name": "com.adlar",
+  "version": "1.0.0",
+  "description": "Homey Adlar Heatpump Support",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Homey Community",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "tuyapi": "^7.7.1"
+  }
+}

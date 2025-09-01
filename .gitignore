@@ -1,0 +1,7 @@
+node_modules
+
+assets/**/*.svg
+assets/**/*.png
+drivers/**/assets/**/*.svg
+drivers/**/assets/**/*.png
+!**/.gitkeep
