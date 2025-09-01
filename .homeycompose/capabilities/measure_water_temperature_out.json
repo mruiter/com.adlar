@@ -1,0 +1,13 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Water Temperature Out"
+  },
+  "units": {
+    "en": "°C"
+  },
+  "decimals": 1,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor"
+}

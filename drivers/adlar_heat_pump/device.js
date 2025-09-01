@@ -22,8 +22,20 @@ class AdlarHeatPumpDevice extends Device {
 
   async updateStatus() {
     try {
-      const temp = await this.tuya.get({ dps: 3 });
-      this.setCapabilityValue('measure_temperature', Number(temp));
+      const tempIn = await this.tuya.get({ dps: 3 });
+      this.setCapabilityValue('measure_temperature', Number(tempIn));
+      const tempOut = await this.tuya.get({ dps: 4 });
+      this.setCapabilityValue('measure_water_temperature_out', Number(tempOut));
+      const ambient = await this.tuya.get({ dps: 6 });
+      this.setCapabilityValue('measure_ambient_temperature', Number(ambient));
+      const flow = await this.tuya.get({ dps: 26 });
+      this.setCapabilityValue('measure_water_flow', Number(flow));
+      const current = await this.tuya.get({ dps: 102 });
+      this.setCapabilityValue('measure_current', Number(current) * 0.001);
+      const voltage = await this.tuya.get({ dps: 103 });
+      this.setCapabilityValue('measure_voltage', Number(voltage));
+      const power = await this.tuya.get({ dps: 104 });
+      this.setCapabilityValue('measure_power', Number(power) * 0.1);
       const target = await this.tuya.get({ dps: 2 });
       this.setCapabilityValue('target_temperature', Number(target));
     } catch (error) {
