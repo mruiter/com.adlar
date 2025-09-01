@@ -9,11 +9,16 @@ Features:
 - Automatic discovery of Tuya compatible Adlar Heat Pump devices on the LAN.
 - Control of on/off state and target temperature.
 - Periodic polling of current temperature.
+- Optional retrieval of local device keys from Tuya Cloud when
+  `TUYA_USERNAME`, `TUYA_PASSWORD`, `TUYA_API_KEY` and `TUYA_API_SECRET`
+  environment variables are provided.
 
 Installation:
 1. Install the app on your Homey.
 2. Start pairing and select the discovered Adlar Heat Pump device.
-3. Provide the device key when prompted to enable secure local control.
+3. Provide the device key when prompted to enable secure local control. If
+   environment variables for Tuya Cloud login are set, the key will be filled
+   automatically when pairing.
 
 Notes:
 - Device key is required for full control and must be obtained from the Tuya

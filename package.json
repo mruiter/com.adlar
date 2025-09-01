@@ -11,6 +11,7 @@
   "license": "MIT",
   "type": "commonjs",
   "dependencies": {
+    "@tuyapi/cloud": "^0.6.2",
     "tuyapi": "^7.7.1"
   }
 }
