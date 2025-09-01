@@ -9,7 +9,7 @@ class AdlarHeatPumpDriver extends Driver {
     this.log('Adlar Heat Pump driver has been initialized');
   }
 
-  async onPairListDevices() {
+  async _discoverAndMerge() {
     const found = await discoverDevices();
     let cloud = [];
     const username = process.env.TUYA_USERNAME;
@@ -31,6 +31,16 @@ class AdlarHeatPumpDriver extends Driver {
         data: { id: dev.id },
         settings: { ip: dev.ip, key: info.key || '' }
       };
+    });
+  }
+
+  async onPairListDevices() {
+    return this._discoverAndMerge();
+  }
+
+  async onPair(session) {
+    session.setHandler('discover', async () => {
+      return this._discoverAndMerge();
     });
   }
 }
