@@ -3,14 +3,27 @@ Homey.on('init', () => {
   const form = document.getElementById('credentials');
   const listEl = document.getElementById('devices');
 
+  if (!form) {
+    console.error('[Pair] credentials form not found');
+    Homey.ready();
+    return;
+  }
+  if (!listEl) {
+    console.error('[Pair] device list element not found');
+    Homey.ready();
+    return;
+  }
+
   form.addEventListener('submit', async e => {
     e.preventDefault();
     listEl.innerHTML = '';
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     const region = document.getElementById('region').value;
+    console.log('[Pair] submitting credentials', { username, region });
     try {
       await Homey.emit('login', { username, password, region });
+      console.log('[Pair] login successful');
       console.log('[Pair] requesting device list');
       const devices = await Homey.emit('list_devices');
       console.log('[Pair] device list result', devices);
