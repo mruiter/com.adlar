@@ -5,7 +5,19 @@
     <script src="/homey.js" data-origin="local"></script>
   </head>
   <body>
-    <p>Searching for Adlar Heat Pumps...</p>
+    <form id="login">
+      <p>Tuya Cloud Credentials (optional):</p>
+      <input type="text" id="username" placeholder="Username" />
+      <input type="password" id="password" placeholder="Password" />
+      <label for="region">Region:</label>
+      <select id="region">
+        <option value="EU">EU</option>
+        <option value="AZ">AZ</option>
+        <option value="AY">AY</option>
+        <option value="IN">IN</option>
+      </select>
+      <button type="submit">Discover Devices</button>
+    </form>
     <ul id="devices"></ul>
     <script src="start.js"></script>
   </body>
