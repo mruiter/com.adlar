@@ -5,3 +5,7 @@ assets/**/*.png
 drivers/**/assets/**/*.svg
 drivers/**/assets/**/*.png
 !**/.gitkeep
+
+
+# Added by Homey CLI
+/.homeybuild/

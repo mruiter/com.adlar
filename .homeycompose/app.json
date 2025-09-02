@@ -9,8 +9,23 @@
   "version": "1.0.0",
   "compatibility": ">=10.0.0",
   "category": [
-    "climate"
+    "climate" , "tools" , "appliances"
   ],
-  "author": "Adlar Integration",
-  "brandColor": "#FF6600"
+  "author": {
+    "name": "Marco Ruiter",
+    "email": "mruiter@eslaan24.nl"
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "MarcoRuiter"
+      }
+    }
+  },
+  "images": {
+    "xlarge": "/assets/images/xlarge.png",
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "brandColor": "#736766"
 }

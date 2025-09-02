@@ -3,6 +3,10 @@
   "name": {
     "en": "Adlar Heat Pump"
   },
+  "images": {
+    "small": "/drivers/adlar_heat_pump/assets/images/small.png",
+    "large": "/drivers/adlar_heat_pump/assets/images/large.png"
+  },
   "class": "thermostat",
   "capabilities": [
     "onoff",
