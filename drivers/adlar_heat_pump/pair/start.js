@@ -2,9 +2,9 @@ Homey.on('init', async () => {
   console.log('[Pair] init');
   const listEl = document.getElementById('devices');
   try {
-    console.log('[Pair] requesting discovery');
-    const devices = await Homey.emit('discover');
-    console.log('[Pair] discovery result', devices);
+    console.log('[Pair] requesting device list');
+    const devices = await Homey.emit('list_devices');
+    console.log('[Pair] device list result', devices);
     if (devices.length === 0) {
       const li = document.createElement('li');
       li.textContent = 'No devices found';
