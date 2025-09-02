@@ -42,6 +42,18 @@ class AdlarHeatPumpDriver extends Driver {
         settings: { ip: dev.ip, key: info.key || '' }
       };
     });
+
+    const foundIds = new Set(found.map(dev => dev.id));
+    cloud.forEach(info => {
+      if (!foundIds.has(info.id)) {
+        merged.push({
+          name: `Adlar Heat Pump ${info.id}`,
+          data: { id: info.id },
+          settings: { ip: '', key: info.key || '' }
+        });
+      }
+    });
+
     this.log('Discovery result', merged);
     return merged;
   }
