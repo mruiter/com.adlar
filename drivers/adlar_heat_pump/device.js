@@ -13,6 +13,7 @@ class AdlarHeatPumpDevice extends Device {
     try {
       await this.tuya.connect();
       this.setAvailable();
+      this.log('Connected to device', id);
       this.pollInterval = setInterval(() => this.updateStatus(), 10000);
     } catch (error) {
       this.error(error);
@@ -21,6 +22,7 @@ class AdlarHeatPumpDevice extends Device {
   }
 
   async updateStatus() {
+    this.log('Updating status');
     try {
       const tempIn = await this.tuya.get({ dps: 3 });
       this.setCapabilityValue('measure_temperature', Number(tempIn));
@@ -38,20 +40,24 @@ class AdlarHeatPumpDevice extends Device {
       this.setCapabilityValue('measure_power', Number(power) * 0.1);
       const target = await this.tuya.get({ dps: 2 });
       this.setCapabilityValue('target_temperature', Number(target));
+      this.log('Status update completed');
     } catch (error) {
       this.error('Status update failed', error);
     }
   }
 
   async onCapabilityOnoff(value) {
+    this.log('Set onoff to', value);
     await this.tuya.set({ dps: 1, set: value });
   }
 
   async onCapabilityTarget_temperature(value) {
+    this.log('Set target temperature to', value);
     await this.tuya.set({ dps: 2, set: value });
   }
 
   async onDeleted() {
+    this.log('Device deleted, cleaning up');
     clearInterval(this.pollInterval);
     await this.tuya.disconnect();
   }
