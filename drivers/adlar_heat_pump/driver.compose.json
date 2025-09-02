@@ -8,6 +8,14 @@
     "large": "/drivers/adlar_heat_pump/assets/images/large.png"
   },
   "class": "thermostat",
+  "connectivity": [
+    "cloud"
+  ],
+  "pair": [
+    {
+      "id": "start"
+    }
+  ],
   "capabilities": [
     "onoff",
     "target_temperature",
@@ -18,14 +26,5 @@
     "measure_current",
     "measure_voltage",
     "measure_power"
-  ],
-  "pair": [
-    {
-      "id": "start",
-      "template": "view",
-      "options": {
-        "path": "start.html"
-      }
-    }
   ]
 }
