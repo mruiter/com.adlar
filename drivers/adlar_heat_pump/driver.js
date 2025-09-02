@@ -53,10 +53,6 @@ class AdlarHeatPumpDriver extends Driver {
 
   async onPair(session) {
     this.log('Pairing session started');
-    session.setHandler('discover', async () => {
-      this.log('Pair discover handler invoked');
-      return this._discoverAndMerge();
-    });
   }
 }
 
