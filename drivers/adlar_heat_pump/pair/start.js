@@ -1,6 +1,6 @@
 Homey.on('init', () => {
   console.log('[Pair] init');
-  const form = document.getElementById('login');
+  const form = document.getElementById('credentials');
   const listEl = document.getElementById('devices');
 
   form.addEventListener('submit', async e => {
