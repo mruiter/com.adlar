@@ -18,5 +18,14 @@
     "measure_current",
     "measure_voltage",
     "measure_power"
+  ],
+  "pair": [
+    {
+      "id": "start",
+      "template": "view",
+      "options": {
+        "path": "start.html"
+      }
+    }
   ]
 }
