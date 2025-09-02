@@ -9,7 +9,7 @@ class AdlarHeatPumpDriver extends Driver {
     this.log('Adlar Heat Pump driver has been initialized');
   }
 
-  async _discoverAndMerge() {
+  async _discoverAndMerge(creds = {}) {
     this.log('Starting discovery of Adlar Heat Pumps');
     let found = [];
     try {
@@ -20,9 +20,9 @@ class AdlarHeatPumpDriver extends Driver {
     }
 
     let cloud = [];
-    const username = process.env.TUYA_USERNAME;
-    const password = process.env.TUYA_PASSWORD;
-    const region = process.env.TUYA_REGION || 'EU';
+    const username = creds.username || process.env.TUYA_USERNAME;
+    const password = creds.password || process.env.TUYA_PASSWORD;
+    const region = creds.region || process.env.TUYA_REGION || 'EU';
 
     if (username && password) {
       this.log('Attempting Tuya cloud lookup');
@@ -53,6 +53,16 @@ class AdlarHeatPumpDriver extends Driver {
 
   async onPair(session) {
     this.log('Pairing session started');
+    let creds = {};
+
+    session.setHandler('login', async data => {
+      creds = data || {};
+      return true;
+    });
+
+    session.setHandler('list_devices', async () => {
+      return this._discoverAndMerge(creds);
+    });
   }
 }
 
