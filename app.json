@@ -9,6 +9,7 @@
   },
   "version": "1.0.0",
   "compatibility": ">=10.0.0",
+  "sdk": 3,
   "category": [
     "climate",
     "tools",
