@@ -1,3 +1,4 @@
+
 import Homey from 'homey';
 import TuyaClient from './lib/tuya-client.js';
 
@@ -30,15 +31,16 @@ class AdlarApp extends Homey.App {
       const accKey = settings.get('tuya_access_key');
       const defaultDeviceId = settings.get('tuya_device_id');
       const defaultLocalKey = settings.get('tuya_local_key');
+      const defaultIp = settings.get('tuya_local_ip');
 
       const start = new Date();
       log(`[${start.toISOString()}] Test gestart`);
-      log(`Access ID present: ${Boolean(accId)} | Device ID: ${defaultDeviceId || '(leeg)'} `);
+      log(`Access ID present: ${Boolean(accId)} | Device ID: ${defaultDeviceId || '(leeg)'} | IP: ${defaultIp || '(leeg)'}`);
 
       try {
         if (defaultDeviceId && defaultLocalKey) {
           log('Probeer lokale Tuya-verbinding (LAN)...');
-          const res = await this.tuya.testLocalConnection({ deviceId: defaultDeviceId, localKey: defaultLocalKey });
+          const res = await this.tuya.testLocalConnection({ deviceId: defaultDeviceId, localKey: defaultLocalKey, ip: defaultIp });
           log(`LAN test: ${res.ok ? 'SUCCES' : 'MISLUKT'}${res.detail ? ' — ' + res.detail : ''}`);
         } else {
           log('Geen Device ID / Local Key ingevuld — sla lokale test over.');
