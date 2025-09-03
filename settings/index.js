@@ -1,8 +1,7 @@
 /* global Homey */
-if (!window.Homey) { document.body.innerHTML = '<p style="font-family:system-ui">Homey SDK niet geladen. Ververs de pagina.</p>'; }
-async function load() {
-  const get = Homey.get;
-  const set = Homey.set;
+
+async function load(Homey) {
+  const { get, set } = Homey;
 
   // Populate fields
   for (const key of ['tuya_access_id', 'tuya_access_key', 'tuya_device_id', 'tuya_local_key', 'tuya_last_test_log']) {
@@ -11,7 +10,9 @@ async function load() {
       const el = document.getElementById(key);
       if (el && typeof val === 'string') el.value = val;
       if (key === 'tuya_last_test_log' && val) document.getElementById('log').textContent = val;
-    } catch (e) {}
+    } catch (e) {
+      // ignore
+    }
   }
 
   document.getElementById('btnSave').addEventListener('click', async () => {
@@ -38,9 +39,13 @@ async function load() {
       }
     }, 800);
   });
+
+  Homey.ready();
 }
 
-document.addEventListener('DOMContentLoaded', load);
+function onHomeyReady(Homey) {
+  load(Homey).catch(() => {
+    document.body.innerHTML = '<p style="font-family:system-ui">Homey SDK niet geladen. Ververs de pagina.</p>';
+  });
+}
 
-// Signal to Homey that the settings view is ready
-try { Homey.ready(); } catch (_) {}
