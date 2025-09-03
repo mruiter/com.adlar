@@ -22,8 +22,9 @@ async function load(Homey) {
   });
 
   document.getElementById('btnTest').addEventListener('click', async () => {
-    await Homey.set('tuya_test_request_at', Date.now());
     document.getElementById('log').textContent = 'Test gestart... even geduld';
+    await Homey.set('tuya_last_test_log', '');
+    await Homey.set('tuya_test_now', true);
     // Poll for log result
     const start = Date.now();
     const poll = setInterval(async () => {
