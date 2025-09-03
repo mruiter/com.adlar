@@ -1,17 +1,14 @@
 {
-  "name": "com.adlar",
-  "version": "1.0.0",
-  "description": "Homey Adlar Heatpump Support",
+  "name": "com.adlar.warmtepomp",
+  "version": "0.1.0",
+  "description": "Homey app: Adlar Warmtepomp via Tuya Local (TuyAPI)",
+  "type": "module",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "Homey Community",
   "license": "MIT",
-  "type": "commonjs",
+  "scripts": {
+    "postinstall": "echo \"Note: install dev deps if needed.\""
+  },
   "dependencies": {
-    "@tuyapi/cloud": "^0.6.2",
-    "tuyapi": "^7.7.1"
+    "tuyapi": "^7.6.1"
   }
 }

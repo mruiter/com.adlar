@@ -1,0 +1,19 @@
+{
+  "id": "adlar_castra_aurora_ii",
+  "name": {
+    "en": "Adlar Castra Aurora II",
+    "nl": "Adlar Castra Aurora II"
+  },
+  "class": "other",
+  "capabilities": [],
+  "icon": "drivers/adlar_castra_aurora_ii/assets/icon.svg",
+  "images": {
+    "large": "drivers/adlar_castra_aurora_ii/assets/images/large.png",
+    "small": "drivers/adlar_castra_aurora_ii/assets/images/small.png"
+  },
+  "pair": [
+    {
+      "id": "list_devices"
+    }
+  ]
+}

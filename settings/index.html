@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adlar Warmtepomp — Instellingen</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+</head>
+<body>
+  <main>
+    <h1>Adlar Warmtepomp — Tuya instellingen</h1>
+
+    <section>
+      <h2>Tuya Cloud (optioneel)</h2>
+      <label>Access ID <input id="tuya_access_id" placeholder="Access ID"></label>
+      <label>Access Key <input id="tuya_access_key" placeholder="Access Key"></label>
+    </section>
+
+    <section>
+      <h2>Standaard lokaal device</h2>
+      <label>Device ID <input id="tuya_device_id" placeholder="bfc9c6d6ded27c80a3im4n"></label>
+      <label>Local Key <input id="tuya_local_key" placeholder="xxxxxxxxxxxxxxxx"></label>
+    </section>
+
+    <section>
+      <button id="btnSave">Opslaan</button>
+      <button id="btnTest">Test lokale verbinding</button>
+    </section>
+
+    <section>
+      <h2>Log</h2>
+      <pre id="log"></pre>
+    </section>
+  </main>
+
+  <script src="./index.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+body { font-family: system-ui, sans-serif; padding: 16px; }
+main { max-width: 720px; margin: 0 auto; }
+h1 { margin-bottom: 8px; }
+section { margin: 16px 0; padding: 12px; border: 1px solid #3333; border-radius: 8px; }
+label { display: flex; flex-direction: column; margin: 6px 0; }
+input { padding: 8px; border-radius: 6px; border: 1px solid #ccc; }
+button { padding: 8px 12px; margin-right: 8px; border-radius: 8px; border: 1px solid #3335; cursor: pointer; }
+pre { background: #111; color: #0f0; padding: 12px; border-radius: 8px; min-height: 140px; overflow: auto; }

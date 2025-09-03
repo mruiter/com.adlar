@@ -1,0 +1,1 @@
+Plaats hier: icon.svg, images/small.png, images/large.png
