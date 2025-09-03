@@ -9,6 +9,6 @@
     "postinstall": "echo \"Note: install dev deps if needed.\""
   },
   "dependencies": {
-    "tuyapi": "^7.6.1"
+    "tuyapi": "^7.7.1"
   }
 }
