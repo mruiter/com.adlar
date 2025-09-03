@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
+  <title>Adlår Castra — Unit Silhouette with Stylized Å Logo</title>
+  <desc>Homey-compliant black-only SVG. Outdoor unit silhouette with grille, fan cutout, and stylized Å (geometric A with ring) inside the circle.</desc>
+  <!-- Base cabinet -->
+  <path fill="#000" d="M80,150 h340 a12,12 0 0 1 12,12 v210 a12,12 0 0 1 -12,12 H80 a12,12 0 0 1 -12,-12 V162 a12,12 0 0 1 12,-12 z"/>
+  <!-- Feet -->
+  <rect x="110" y="384" width="70" height="18" fill="#000"/>
+  <rect x="320" y="384" width="70" height="18" fill="#000"/>
+  <!-- Circular fan cutout -->
+  <circle cx="230" cy="255" r="95" fill="#fff"/>
+  <!-- Horizontal grille slats -->
+  <rect x="95" y="190" width="310" height="10" fill="#fff"/>
+  <rect x="95" y="210" width="310" height="10" fill="#fff"/>
+  <rect x="95" y="230" width="310" height="10" fill="#fff"/>
+  <rect x="95" y="250" width="310" height="10" fill="#fff"/>
+  <rect x="95" y="270" width="310" height="10" fill="#fff"/>
+  <rect x="95" y="290" width="310" height="10" fill="#fff"/>
+  <rect x="95" y="310" width="310" height="10" fill="#fff"/>
+  <!-- Stylized geometric A (constructed with paths) -->
+  <path fill="#000" d="M180,330 L230,170 L280,330 Z M205,280 L255,280 L230,210 Z"/>
+  <!-- Ring above A -->
+  <circle cx="230" cy="150" r="20" fill="#000"/>
+  <circle cx="230" cy="150" r="10" fill="#fff"/>
+</svg>

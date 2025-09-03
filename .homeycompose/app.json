@@ -1,31 +1,39 @@
 {
   "id": "com.adlar.warmtepomp",
   "name": {
-    "en": "Adlar Heat Pump (Tuya Local)",
-    "nl": "Adlar Warmtepomp (Tuya Local)"
+    "en": "Adlar Castra Heat Pump",
+    "nl": "Adlar Castra Warmtepomp"
   },
   "description": {
-    "en": "Local Tuya (LAN) integration for Adlar Castra Aurora II heat pump via SDK v3 & Homey Compose.",
-    "nl": "Lokale Tuya (LAN) integratie voor Adlar Castra Aurora II warmtepomp via SDK v3 & Homey Compose."
+    "en": "The foreplay starts with perfect climate."
   },
-  "version": "0.1.0",
+  "version": "1.0.0",
   "compatibility": ">=12.0.1",
   "sdk": 3,
-  "brandColor": "#1e88e5",
+  "brandColor": "#736766",
   "category": [
-    "climate"
+    "climate",
+    "tools",
+    "appliances"
   ],
-  "author": "Adlar App / ChatGPT",
+  "author": {
+    "name": "Marco Ruiter",
+    "email": "mruiter@eslaan24.nl"
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "MarcoRuiter"
+      }
+    }
+  },
   "icon": "assets/icon.svg",
   "images": {
+    "xlarge": "/assets/images/xlarge.png",
     "large": "assets/images/large.png",
     "small": "assets/images/small.png"
   },
-  "settings": [
-	{ "type": "view", "url": "settings/index.html" }
-  ],
-  "drivers": [
-  ],
+  "esm": true,
   "settings": [
     {
       "type": "group",
@@ -75,6 +83,14 @@
             "en": "Local Key",
             "nl": "Local Key"
           }
+        },
+        {
+          "id": "tuya_local_ip",
+          "type": "text",
+          "title": {
+            "en": "Local IP address",
+            "nl": "Lokaal IP-adres"
+          }
         }
       ]
     },
@@ -100,8 +116,26 @@
             "en": "Last test log",
             "nl": "Laatste testlog"
           }
+        },
+        {
+          "id": "tuya_find_now",
+          "type": "checkbox",
+          "title": {
+            "en": "Discover nearby Tuya devices now",
+            "nl": "Zoek nu naar nabije Tuya-apparaten"
+          }
+        },
+        {
+          "id": "tuya_last_discover_log",
+          "type": "textarea",
+          "title": {
+            "en": "Last discover log",
+            "nl": "Laatste zoeklog"
+          }
         }
       ]
     }
+  ],
+  "drivers": [
   ]
 }

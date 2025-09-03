@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
+  <title>Adlår Logo — BW Å at cx=330</title>
+  <rect x="0" y="0" width="500" height="500" fill="none"/>
+  <g fill="#000">
+    <text x="250" y="235" font-size="120" font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">ADLAR</text>
+    <circle cx="330" cy="125" r="18"/>
+    <circle cx="330" cy="125" r="8" fill="#fff"/>
+    <rect x="120" y="275" width="260" height="14"/>
+  </g>
+</svg>

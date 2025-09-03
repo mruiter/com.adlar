@@ -1,9 +1,0 @@
-{
-  "app": {
-    "name": "Adlar Warmtepomp (Tuya Local)",
-    "desc": "Lokale Tuya (LAN) integratie voor Adlar Castra Aurora II."
-  },
-  "driver": {
-    "name": "Adlar Castra Aurora II"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "app": {
-    "name": "Adlar Heat Pump (Tuya Local)",
-    "desc": "Local Tuya (LAN) integration for Adlar Castra Aurora II."
-  },
-  "driver": {
-    "name": "Adlar Castra Aurora II"
-  }
-}
