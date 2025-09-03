@@ -2,7 +2,7 @@
 
 async function load(Homey) {
   // Populate fields
-  for (const key of ['tuya_access_id', 'tuya_access_key', 'tuya_device_id', 'tuya_local_key', 'tuya_last_test_log', 'tuya_last_discover_log']) {
+  for (const key of ['tuya_access_id', 'tuya_access_key', 'tuya_device_id', 'tuya_local_key', 'tuya_local_ip', 'tuya_last_test_log', 'tuya_last_discover_log']) {
     try {
       const val = await Homey.get(key);
       const el = document.getElementById(key);
@@ -16,7 +16,7 @@ async function load(Homey) {
   }
 
   document.getElementById('btnSave').addEventListener('click', async () => {
-    for (const key of ['tuya_access_id', 'tuya_access_key', 'tuya_device_id', 'tuya_local_key']) {
+    for (const key of ['tuya_access_id', 'tuya_access_key', 'tuya_device_id', 'tuya_local_key', 'tuya_local_ip']) {
       const el = document.getElementById(key);
       await Homey.set(key, el.value || '');
     }
