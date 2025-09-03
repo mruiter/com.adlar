@@ -6,6 +6,7 @@ class AdlarApp extends Homey.App {
     this.log('Adlar Warmtepomp app gestart');
     this.tuya = new TuyaClient({ app: this });
     this._wireSettingsTest();
+    this._wireSettingsDiscover();
   }
 
   _wireSettingsTest() {
@@ -50,6 +51,50 @@ class AdlarApp extends Homey.App {
       log(`[${end.toISOString()}] Test klaar (duur ${(end - start)} ms)`);
       try { settings.set('tuya_last_test_log', logLines.join('\n')); } catch (_) {}
       try { settings.set('tuya_test_now', false); } catch (_) {}
+
+      running = false;
+    });
+  }
+
+  _wireSettingsDiscover() {
+    const settings = this.homey.settings;
+    let running = false;
+
+    settings.on('set', async (key) => {
+      if (key !== 'tuya_find_now') return;
+      if (running) return;
+
+      const current = settings.get('tuya_find_now');
+      if (current !== true) return;
+
+      running = true;
+      const logLines = [];
+      const log = (msg) => {
+        logLines.push(msg);
+        this.log(msg);
+      };
+
+      const start = new Date();
+      log(`[${start.toISOString()}] Zoeken gestart`);
+
+      try {
+        const found = await this.tuya.findNearbyDevices({ timeoutMs: 5000 });
+        if (found.length) {
+          log(`Gevonden ${found.length} apparaat(en):`);
+          for (const d of found) {
+            log(`- ${d.gwId}${d.productKey ? ' (' + d.productKey + ')' : ''}`);
+          }
+        } else {
+          log('Geen apparaten gevonden.');
+        }
+      } catch (e) {
+        log(`Fout bij zoeken: ${e?.message || e}`);
+      }
+
+      const end = new Date();
+      log(`[${end.toISOString()}] Zoeken klaar (duur ${(end - start)} ms)`);
+      try { settings.set('tuya_last_discover_log', logLines.join('\n')); } catch (_) {}
+      try { settings.set('tuya_find_now', false); } catch (_) {}
 
       running = false;
     });
