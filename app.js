@@ -21,29 +21,33 @@ class AdlarApp extends Homey.App {
 
       running = true;
       const logLines = [];
+      const log = (msg) => {
+        logLines.push(msg);
+        this.log(msg);
+      };
       const accId = settings.get('tuya_access_id');
       const accKey = settings.get('tuya_access_key');
       const defaultDeviceId = settings.get('tuya_device_id');
       const defaultLocalKey = settings.get('tuya_local_key');
 
       const start = new Date();
-      logLines.push(`[${start.toISOString()}] Test gestart`);
-      logLines.push(`Access ID present: ${Boolean(accId)} | Device ID: ${defaultDeviceId || '(leeg)'} `);
+      log(`[${start.toISOString()}] Test gestart`);
+      log(`Access ID present: ${Boolean(accId)} | Device ID: ${defaultDeviceId || '(leeg)'} `);
 
       try {
         if (defaultDeviceId && defaultLocalKey) {
-          logLines.push('Probeer lokale Tuya-verbinding (LAN)...');
+          log('Probeer lokale Tuya-verbinding (LAN)...');
           const res = await this.tuya.testLocalConnection({ deviceId: defaultDeviceId, localKey: defaultLocalKey });
-          logLines.push(`LAN test: ${res.ok ? 'SUCCES' : 'MISLUKT'}${res.detail ? ' — ' + res.detail : ''}`);
+          log(`LAN test: ${res.ok ? 'SUCCES' : 'MISLUKT'}${res.detail ? ' — ' + res.detail : ''}`);
         } else {
-          logLines.push('Geen Device ID / Local Key ingevuld — sla lokale test over.');
+          log('Geen Device ID / Local Key ingevuld — sla lokale test over.');
         }
       } catch (e) {
-        logLines.push(`Fout bij lokale test: ${e?.message || e}`);
+        log(`Fout bij lokale test: ${e?.message || e}`);
       }
 
       const end = new Date();
-      logLines.push(`[${end.toISOString()}] Test klaar (duur ${(end - start)} ms)`);
+      log(`[${end.toISOString()}] Test klaar (duur ${(end - start)} ms)`);
       try { settings.set('tuya_last_test_log', logLines.join('\n')); } catch (_) {}
       try { settings.set('tuya_test_now', false); } catch (_) {}
 
